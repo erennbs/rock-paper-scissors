@@ -1,3 +1,32 @@
+const buttons = document.querySelectorAll("button");
+const resultDiv = document.querySelector(".results");
+const playerScoreSpan = document.querySelector(".player-score");
+const computerScoreSpan = document.querySelector(".computer-score");
+
+buttons.forEach((button) => button.addEventListener("click", buttonOnClick));
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+
+function buttonOnClick(e) {
+    if (playerScore === 5 || computerScore === 5) return;
+
+    playerSelection = e.target.textContent;
+    computerSelection = getComputerChoice();
+
+    updateTexts(play(playerSelection, computerSelection));
+}    
+
+function updateTexts(text) {
+    resultDiv.textContent = text;
+    playerScoreDiv.textContent = `Player: ${playerScore}`;
+    computerScoreDiv.textContent = `Computer: ${computerScore}`;
+}    
+
+
+
 const OPTIONS = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
@@ -16,9 +45,11 @@ function play(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors" ||
     playerSelection === "paper" && computerSelection === "rock" ||
     playerSelection === "scissors" && computerSelection === "paper") {
+        playerScore++
         return "You Win!";
     }
     else {
+        computerScore++
         return "Computer Win!";
     }
 }
@@ -29,21 +60,3 @@ function isChoiceValid(selection) {
     }
     return false;
 }
-
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-        
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt("Rock, Paper, Scicssor: ");
-
-        while(!isChoiceValid(playerSelection)) {
-            playerSelection = prompt("Rock, Paper, Scissors");
-        }
-        
-        console.log(playerSelection);
-        console.log(computerSelection);
-        console.log(play(playerSelection, computerSelection));
-    }
-}
-
-playGame();

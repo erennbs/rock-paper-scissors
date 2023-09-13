@@ -1,0 +1,26 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    width: 200px;
+    height: 200px;
+}
+
+.buttons {
+    display: flex;
+    gap: 100px;
+}
+
+.buttons > * {
+    font-size: 72px;
+}
+
+.scores {
+    display: flex;
+    gap: 50%;
+}
