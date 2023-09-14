@@ -13,7 +13,7 @@ let computerScore = 0;
 function buttonOnClick(e) {
     if (playerScore === 5 || computerScore === 5) return;
 
-    playerSelection = e.target.textContent;
+    playerSelection = e.target.id;
     computerSelection = getComputerChoice();
 
     updateTexts(play(playerSelection, computerSelection));
@@ -21,8 +21,15 @@ function buttonOnClick(e) {
 
 function updateTexts(text) {
     resultDiv.textContent = text;
-    playerScoreDiv.textContent = `Player: ${playerScore}`;
-    computerScoreDiv.textContent = `Computer: ${computerScore}`;
+    playerScoreSpan.textContent = `Player: ${playerScore}`;
+    computerScoreSpan.textContent = `Computer: ${computerScore}`;
+
+    if (playerScore === 5) {
+        resultDiv.textContent = "Winner is: You";
+    } else if (computerScore === 5) {
+        resultDiv.textContent = "Winner is: Computer";
+    }
+    
 }    
 
 

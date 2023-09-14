@@ -1,12 +1,25 @@
+html {
+    font-family: 'Open Sans', sans-serif;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    gap: 50px;
+}
+
+.header {
+    color: rgb(249 201 16 / 90%);
+    font-size: 36px;
+    -webkit-text-stroke: rgb(35, 35, 35) 2px;
 }
 
 button {
+    background-color: white;
+    border-radius: 5px;
     width: 200px;
     height: 200px;
 }
@@ -14,6 +27,7 @@ button {
 .buttons {
     display: flex;
     gap: 100px;
+    margin: 50px 0;
 }
 
 .buttons > * {
@@ -22,5 +36,17 @@ button {
 
 .scores {
     display: flex;
-    gap: 50%;
+    gap: 180px;
+}
+
+.scores > span {
+    color: rgb(69, 69, 69);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.results {
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: bold;
 }
